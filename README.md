@@ -14,10 +14,10 @@ The languages and other resources that have been used are:
   <ul>
   <li>Symfony 5</li>
   <li>PHP</li>
-  <li>HTML</li>
+  <li>Twig</li>
+  <li>HTML (inside twig)</li>
   <li>CSS</li>
   <li>JavaScript</li>
-  <li>Twig</li>
   <li>Bootstrap</li>
   <li>JQuery (a bit)</li>
   <li>SQLite</li>
