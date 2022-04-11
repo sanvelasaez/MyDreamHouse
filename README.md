@@ -24,3 +24,7 @@ The languages and other resources that have been used are:
   </ul>
 
 SQLite has been used for the database for convenience, because this project is not hosted on any server. And all the data is an example that has been collected from the Idealista website
+
+# How to download in local
+
+If you want to see this web locally you have to install Symfony 5 on your computer (watch a tutorial if you are not sure how to do it). Then init Symfony from the terminal and go to the url that tells you. The index.php is in public.
