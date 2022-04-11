@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Propietario{% endblock %}
+
+{% block body %}
+    <h1>Propietario</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ propietario.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ propietario.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Email_prop</th>
+                <td>{{ propietario.emailProp }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ propietario.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Tipo_propietario</th>
+                <td>{{ propietario.tipoPropietario }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('propietario_index') }}">back to list</a>
+
+    <a href="{{ path('propietario_edit', {'id': propietario.id}) }}">edit</a>
+
+    {{ include('propietario/_delete_form.html.twig') }}
+{% endblock %}

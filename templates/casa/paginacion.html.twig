@@ -1,0 +1,108 @@
+{% if maxPages > 1 %}
+    <ul class="pagination">
+        {% if thisPage > 1 %}
+            <li class="page-item">
+                <form method="{{ method }}" action="{{ path('casa_index') }}/{{ thisPage - 1 < 1 ? 1 : thisPage - 1 }}">
+                    {{ method == 'POST' ? include('casa/hidden.html.twig') : '' }}
+                    <button class="page-link" >«</button>
+                </form>
+            </li>
+        {% endif %}
+
+        <li class="page-item {{ thisPage == 1 ? 'active' : '' }}">
+            <form method="{{ method }}" action="{{ path('casa_index') }}/1">
+                {{ method == 'POST' ? include('casa/hidden.html.twig') : '' }}
+                <button class="page-link" >1</button>
+            </form>
+        </li>
+
+        {% if maxPages > 7 %}
+            
+            {% if thisPage < 5 %}
+                {% for i in 2..6 %}
+                    <li class="page-item {{ thisPage == i ? 'active' : '' }}">
+                        <form method="{{ method }}" action="{{ path('casa_index') }}/{{i}}">
+                            {{ method == 'POST' ? include('casa/hidden.html.twig') : '' }}
+                            <button class="page-link btn btn-outline-primary" >{{ i }}</button>
+                        </form>
+                    </li>
+                {% endfor %}
+                <li class="page-item">
+                    <form method="{{ method }}" action="{{ path('casa_index') }}/{{ (maxPages - thisPage) % 2 == 0 ? (maxPages - thisPage) / 2 + thisPage : ((maxPages - thisPage) - 1) / 2 + thisPage }}">
+                        {{ method == 'POST' ? include('casa/hidden.html.twig') : '' }}
+                        <button class="page-link" >...</button>
+                    </form>
+                </li>
+            {% endif %}
+
+            {# Render each page number #}
+            {% if (thisPage > 4) and (thisPage < maxPages - 3) %}
+                <li class="page-item">
+                    <form method="{{ method }}" action="{{ path('casa_index') }}/{{ thisPage % 2 == 0 ? thisPage / 2 : (thisPage - 1) / 2 }}">
+                        {{ method == 'POST' ? include('casa/hidden.html.twig') : '' }}
+                        <button class="page-link" >...</button>
+                    </form>
+                </li>
+                {% for i in (thisPage - 2)..(thisPage + 2) %}
+                    <li class="page-item {{ thisPage == i ? 'active' : '' }}">
+                        <form method="{{ method }}" action="{{ path('casa_index') }}/{{i}}">
+                            {{ method == 'POST' ? include('casa/hidden.html.twig') : '' }}
+                            <button class="page-link" >{{ i }}</button>
+                        </form>
+                    </li>
+                {% endfor %}
+                <li class="page-item">
+                    <form method="{{ method }}" action="{{ path('casa_index') }}/{{ (maxPages - thisPage) % 2 == 0 ? (maxPages - thisPage) / 2 + thisPage : ((maxPages - thisPage) - 1) / 2 + thisPage }}">
+                        {{ method == 'POST' ? include('casa/hidden.html.twig') : '' }}
+                        <button class="page-link" >...</button>
+                    </form>
+                </li>
+            {% endif %}
+
+            {% if thisPage > maxPages - 4 %}
+                <li class="page-item">
+                    <form method="{{ method }}" action="{{ path('casa_index') }}/{{ thisPage % 2 == 0 ? thisPage / 2 : (thisPage - 1) / 2 }}">
+                        {{ method == 'POST' ? include('casa/hidden.html.twig') : '' }}
+                        <button class="page-link" >...</button>
+                    </form>
+                </li>
+                {% for i in maxPages - 4.. maxPages - 1 %}
+                    <li class="page-item {{ thisPage == i ? 'active' : '' }}">
+                        <form method="{{ method }}" action="{{ path('casa_index') }}/{{i}}">
+                            {{ method == 'POST' ? include('casa/hidden.html.twig') : '' }}
+                            <button class="page-link" >{{ i }}</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            {% endif %}
+
+            <li class="page-item {{ thisPage == maxPages ? 'active' : '' }}">
+                <form method="{{ method }}" action="{{ path('casa_index') }}/{{ maxPages }}">
+                    {{ method == 'POST' ? include('casa/hidden.html.twig') : '' }}
+                    <button class="page-link" >{{ maxPages }}</button>
+                </form>
+            </li>
+
+        {% else %}
+            {% for i in 2.. maxPages %}
+                <li class="page-item {{ thisPage == i ? 'active' : '' }}">
+                    <form method="{{ method }}" action="{{ path('casa_index') }}/{{i}}">
+                        {{ method == 'POST' ? include('casa/hidden.html.twig') : '' }}
+                        <button class="page-link btn btn-outline-primary" >{{ i }}</button>
+                    </form>
+                </li>
+            {% endfor %}
+        {% endif %}
+
+        
+        {% if thisPage < maxPages %}
+            <li class="page-item">
+                <form method="{{ method }}" action="{{ path('casa_index') }}/{{ thisPage + 1 <= maxPages ? thisPage + 1 : thisPage }}">
+                    {{ method == 'POST' ? include('casa/hidden.html.twig') : '' }}
+                    <button class="page-link" >»</button>
+                </form>
+            </li>
+        {% endif %}
+
+    </ul>
+{% endif %}

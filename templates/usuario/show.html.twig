@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tu perfil{% endblock %}
+{% block stylesheets %}
+	<link href="{{ asset('bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet"/>
+	<link href="{{ asset('css/styles.css') }}" type="text/css" rel="stylesheet"/>
+	<link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container pt-5 pb-5" style="background-image: url('/data/images/fondos/casaFondoOpacity.png');">
+        
+        <div class="pt-5 pb-3 bg-light pl-5 pr-5" id="usu-show">
+            <h1 class="text-center">{{ usuario.nombre }} {{ usuario.apellidos }}</h1>
+
+            <img src="{{ usuario.imagenUsu ? asset('data/images/usuarios/'~usuario.imagenUsu) : asset('data/images/usuarios/user-image.png') }}" class="user-img"/>
+            
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th class="bg-dark text-light">Email</th>
+                        <td class="">{{ usuario.email }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-dark text-light">Nombre</th>
+                        <td class="">{{ usuario.nombre }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-dark text-light">Apellidos</th>
+                        <td class="">{{ usuario.apellidos }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-dark text-light">Fecha Nacimiento:</th>
+                        <td class="">{{ usuario.fechaNac ? usuario.fechaNac|date('d-m-Y') : '' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            {% if usuario.email == app.user.email %}
+                <a class="btn btn-info ml-2 mr-2 my-2 rounded" href="{{ path('usuario_edit', {'id': usuario.id}) }}">Editar<img class="ml-1" src="{{ asset('data/images/white_edit.png') }}"/></a>
+                <a class="btn btn-dark margin my-2 mx-2" href="{{ path('home') }}"><img src="{{ asset('data/images/arrow_white.png') }}" class="show-img-index"/>Regresar al home</a>
+            {% else %}
+            <form id="form-show-user" method="post" action="{{ path('usuario_delete', {'id': usuario.id}) }}" onsubmit="return confirm('Seguro que quieres borrar a este usuario?');">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ usuario.id) }}">
+                <button class="btn btn-danger profile-button">Eliminar<img class="ml-1" src="{{ asset('data/images/white_trash.png') }}"/></button>
+                <a class="btn btn-info ml-2 mr-2 my-2 rounded" href="{{ path('usuario_edit', {'id': usuario.id}) }}">Editar<img class="ml-1" src="{{ asset('data/images/white_edit.png') }}"/></a>
+                <a class="btn btn-dark margin my-2 mx-2" href="{{ path('home') }}"><img src="{{ asset('data/images/arrow_white.png') }}" class="show-img-index"/>Regresar al home</a>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

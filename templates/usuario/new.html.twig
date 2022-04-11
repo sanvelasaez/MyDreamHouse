@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nuevo usuario{% endblock %}
+{% block stylesheets %}
+			<link href="{{ asset('bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet"/>
+			<link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet"/>
+            <link href="{{ asset('css/styles.css') }}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+{% block body %}
+<div class="container pt-1 pb-1"  style="background-image: url('/data/images/fondos/casaFondoOpacity.png');">
+    <div id="div-regis">
+        <div id="div-img-regis">
+            <img id="img-regis" src="/data/images/fondos/casaFondo4recortada.jpg"></img>
+        </div>
+        <div class="" id="div-form-regis">
+            <h3 class="text-center pt-3">Registrar</h3>
+            <span id="spanuser">{{ include('usuario/_form.html.twig') }}</span>
+        </div>
+    </div>
+</div>
+{% endblock %}

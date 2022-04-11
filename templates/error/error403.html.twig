@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ACCESO DENEGADO
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('css/error.css') }}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+	<p>HTTP:
+		<span class="error">403</span>
+	</p>
+	<code>
+		<span class="error">this_user</span>.<em>access</em> = false;
+	</code>
+	<code>
+		<span class="error">if</span>
+		(<b>your_user_it_wrong</b>) {<span class="error">try_again()</span>;}</code>
+	<code>
+		<span class="error">else if (<b>you_not_admin</b>)</span>
+		{<em>alert</em>(<i>"No tienes acceso a esta página."</i>);
+		<span class="error"	>window</span>.<em>location</em> = home;}
+	</code>
+	<center>
+		<a  class="error" href="{{ path('index')}}">GO HOME</a>
+	</center>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script src="{{ asset('js/error.js') }}" rel="javascript"></script>
+{% endblock %}

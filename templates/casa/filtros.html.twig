@@ -1,0 +1,85 @@
+<div class="container rounded" id="div-inicial-filtros" style="background-image: url('/data/images/fondos/casaFondoOpacity.png');">
+	<form class="row justify-content-center" method="POST" action="{{ path('casa_index') }}">
+	
+		<div class="form-group col-md-3 div-filtros">
+			<label class="text-light">Tipo de venta</label>
+			{{ form_widget(form.tipo_venta, {'expanded' : false, 'placeholder' : 'Elija tipo de venta'}) }}
+		</div>
+		<div class="form-group col-md-3 div-filtros">	
+			<label class="text-light">Tipo de casa</label>
+			{{ form_widget(form.tipo_casa, {'required' : false}) }}
+		</div>	
+		<div class="form-group col-md-3 div-filtros">
+			<label class="text-light">Ciudad</label>
+			{{ form_widget(form.id_ciu, {'required' : false}) }}
+		</div>		
+		<div class="form-group col-md-5 div-filtros">
+			<label class="text-light">Metros cuadrados</label>
+			<br>
+			<input name="m2min" id="m2min" class="" type="text" placeholder="Min" {% if method == 'POST' %} value="{{ m2min }}" {% endif %}>
+			<input name="m2max" id="m2max" class="" type="text" placeholder="Max" {% if method == 'POST' %} value="{{ m2max }}" {% endif %}>
+		</div>
+		<div class="form-group col-md-5 div-filtros">
+			<label class="text-light">Precio</label>
+			<br>
+			<input name="preciomin" id="preciomin" class="" type="text" placeholder="Min" {% if method == 'POST' %} value="{{ preciomin }}" {% endif %}>
+			<input name="preciomax" id="preciomax" class="" type="text" placeholder="Max" {% if method == 'POST' %} value="{{ preciomax }}" {% endif %}>
+			<br>
+		</div>
+		<div class="form-group col-md-3 div-filtros">
+			<label class="text-light">Número de habitaciones</label>
+			<br>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input d-none" name="h[0]" type="checkbox" id="inlineCheckbox0" value="" checked>
+				<label class="form-check-label d-none text-light" for="inlineCheckbox0"></label>
+			</div>
+			<div class="form-check form-check-inline div-filtros">
+				<input class="form-check-input" name="h[1]" type="checkbox" id="inlineCheckbox1" value="1" {% if method == 'POST' and h != null and h[1] == '1' %} checked {% endif %}>
+				<label class="form-check-label text-light" for="inlineCheckbox1">1</label>
+			</div>
+			<div class="form-check form-check-inline div-filtros">
+				<input class="form-check-input" name="h[2]" type="checkbox" id="inlineCheckbox2" value="2" {% if method == 'POST' and h != null and h[2] == '2' %} checked {% endif %}>
+				<label class="form-check-label text-light" for="inlineCheckbox2">2</label>
+			</div>
+			<div class="form-check form-check-inline div-filtros">
+				<input class="form-check-input" name="h[3]" type="checkbox" id="inlineCheckbox3" value="3" {% if method == 'POST' and h != null and h[3] == '3' %} checked {% endif %}>
+				<label class="form-check-label text-light" for="inlineCheckbox3">3</label>
+			</div>
+			<div class="form-check form-check-inline div-filtros">
+				<input class="form-check-input" name="h[4]" type="checkbox" id="inlineCheckbox3" value="4" {% if method == 'POST' and h != null and h[4] == '4' %} checked {% endif %}>
+				<label class="form-check-label text-light" for="inlineCheckbox3">4+</label>
+			</div>
+		</div>
+
+		<div class="form-group col-md-3 div-filtros">
+			<label class="text-light">Número de baños</label>
+			<br>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input d-none" name="b[0]" type="checkbox" id="inlineCheckbox0" value="" checked>
+				<label class="form-check-label d-none text-light" for="inlineCheckbox0"></label>
+			</div>
+			<div class="form-check form-check-inline div-filtros">
+				<input class="form-check-input" name="b[1]" type="checkbox" id="inlineCheckbox1" value="1" {% if method == 'POST' and b != null and b[1] == '1' %} checked {% endif %}>
+				<label class="form-check-label text-light" for="inlineCheckbox1">1</label>
+			</div>
+			<div class="form-check form-check-inline div-filtros">
+				<input class="form-check-input" name="b[2]" type="checkbox" id="inlineCheckbox2" value="2" {% if method == 'POST' and b != null and b[2] == '2' %} checked {% endif %}>
+				<label class="form-check-label text-light" for="inlineCheckbox2">2</label>
+			</div>
+			<div class="form-check form-check-inline div-filtros">
+				<input class="form-check-input" name="b[3]" type="checkbox" id="inlineCheckbox3" value="3" {% if method == 'POST' and b != null and b[3] == '3' %} checked {% endif %}>
+				<label class="form-check-label text-light" for="inlineCheckbox3">3</label>
+			</div>
+			<div class="form-check form-check-inline div-filtros">
+				<input class="form-check-input" name="b[4]" type="checkbox" id="inlineCheckbox3" value="4" {% if method == 'POST' and b != null and b[4] == '4' %} checked {% endif %}>
+				<label class="form-check-label text-light" for="inlineCheckbox3">4+</label>
+			</div>
+		</div>
+		
+		<div class="form-group col-md-4 div-filtros">
+			<button class="btn btn-info ml-2 my-2">{{ button_label|default('Filtrar') }}<img class="ml-1" src="{{ asset('data/images/search1.png') }}"/></button>
+			<a class="btn btn-info" href="{{ path('casa_index') }}">Ver todas las casas</a>
+		</div>
+	</form>
+</div>
+

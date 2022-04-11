@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MyDreamHouse{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div id="containerIni" class="">
+    <div id="image2">
+      <div id="container-words">
+        <h1 class="text-center"><span class="typed"></span></h1>
+        <p class="text-center">Encuentra la casa de tus sueños</p>
+        <div class="container">
+			<form class="row justify-content-center" method="POST" action="{{ path('casa_index') }}">
+					<div class="form-group col-md-3">
+						{{ form_widget(form.tipo_venta, {'expanded' : false, 'placeholder' : '¿Comprar o alquilar?', 'attr' : {'class' : 'form-control-lg item custom-select'} }) }}
+					</div>
+					<div class="form-group col-md-3">
+						{{ form_widget(form.tipo_casa, {'required' : false, 'placeholder' : '¿Tipo de casa?', 'attr' : {'class' : 'form-control-lg item custom-select'} }) }}
+					</div>
+					<div class="form-group col-md-3">
+						{{ form_widget(form.id_ciu, {'required' : false, 'placeholder' : '¿Ciudad?', 'attr' : {'class' : 'form-control-lg item custom-select'} }) }}
+					</div>
+					<div class="form-group col-md-6">
+						<button class="btn btn-info my-2 btn-block create-account h3">{{ button_label|default('Buscar') }}<img class="fluid-img ml-1" src="{{ asset('data/images/search1.png') }}"/></button>
+					</div>
+			</form>
+		</div>
+      </div>
+    </div>
+</div>
+{% endblock %}
+
+

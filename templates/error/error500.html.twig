@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PÁGINA NO ENCONTRADA
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('css/error.css') }}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+	<p>HTTP:
+		<span class="error">500</span>
+	</p>
+	<code>
+		<span class="error">this_page</span>.<em>not_found</em> = true;
+	</code>
+	<code>
+		<span class="error">if</span>
+		(<b>you_cleaned_cache</b>) {<span class="error">try_again()</span>;}</code>
+	<code>
+		<span class="error">else if (<b>server_not_works</b>)</span>
+		{<em>alert</em>(<i>"Hay un fallo en el servidor."</i>);
+		<span class="error"	>window</span>.<em>location</em> = home;}
+	</code>
+	<center>
+		<a  class="error" href="{{ path('index')}}">GO HOME</a>
+	</center>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script src="{{ asset('js/error.js') }}" rel="javascript"></script>
+{% endblock %}

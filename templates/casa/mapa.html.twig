@@ -1,0 +1,23 @@
+
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript">
+
+		var coord = "{{ casa.coordenadas }}".split(',');
+
+        var myCenter = new google.maps.LatLng(coord[0], coord[1]);
+
+        var marker = new google.maps.Marker({position: myCenter});
+
+        window.onload = function () {
+            var mapOptions = {
+                center: myCenter,
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                panControl: false,
+                zoomControl: false,
+                scaleControl: false
+            };
+            var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+            marker.setMap(map);
+        };
+	</script>

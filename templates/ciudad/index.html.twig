@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ciudad index{% endblock %}
+
+{% block body %}
+    <h1>Lista de ciudades</h1>
+
+    <table class="table" id="tabla-ciudades">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Ciudad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ciudad in ciudads %}
+            <tr>
+                <td>{{ ciudad.id }}</td>
+                <td>{{ ciudad.nombreCiudad }}</td>
+                <td>
+                    <a class="btn btn-info ml-1 mt-1" href="{{ path('ciudad_show', {'id': ciudad.id}) }}">ver<img class="ml-1" src="{{ asset('data/images/white-show.png') }}"/></a>
+                    <a class="btn btn-info ml-1 mt-1" href="{{ path('ciudad_edit', {'id': ciudad.id}) }}">editar<img class="ml-1" src="{{ asset('data/images/white_edit.png') }}"/></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td><a class="btn btn-dark my-2 ml-1" href="{{ path('ciudad_new') }}">Crear nueva ciudad</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+{% endblock %}

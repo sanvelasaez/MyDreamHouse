@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Usuario index{% endblock %}
+
+{% block body %}
+    <h1>Lista de usuarios</h1>
+
+    <table id="tabla-usuarios" class="table">
+        <thead id="thead-usuarios" class="thead-dark">
+            <tr class="th-usuario">
+                <th>Id</th>
+                <th>Imagen Usuario</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Contraseña</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Fecha Nacimiento</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for usuario in usuarios %}
+            <tr>
+                <td data-title="Id">{{ usuario.id }}</td>
+                <td data-title="Foto de perfil"><img src="{{ usuario.imagenUsu ? asset('data/images/usuarios/'~usuario.imagenUsu) : asset('data/images/usuarios/user-image.png') }}" class="user-img-index"/></td>
+                <td data-title="Email">{{ usuario.email }}</td>
+                <td data-title="Role">{{ usuario.roles ? usuario.roles|json_encode : '' }}</td>
+                <td data-title="Contraseña"><span id="passwd">{{ usuario.password }}</span></td>
+                <td data-title="Nombre">{{ usuario.nombre }}</td>
+                <td data-title="Apellidos">{{ usuario.apellidos }}</td>
+                <td data-title="Fecha de nacimiento">{{ usuario.fechaNac ? usuario.fechaNac|date('d-m-Y') : '' }}</td>
+                <td data-title="Acciones">
+                    <a href="{{ path('usuario_show', {'id': usuario.id}) }}"><img src="{{ asset('data/images/show.png') }}" class="show-img-index"/></a>
+                    <a href="{{ path('usuario_edit', {'id': usuario.id}) }}"><img src="{{ asset('data/images/edit.png') }}" class="edit-img-index"/></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Sin usuarios registrados</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

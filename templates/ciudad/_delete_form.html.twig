@@ -1,0 +1,5 @@
+<form method="post" class="w-100" action="{{ path('ciudad_delete', {'id': ciudad.id}) }}" onsubmit="return confirm('¿Quieres borrar la ciudad?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ciudad.id) }}">
+    <button class="btn btn-danger my-2 w-100" id="btn-delete-ciu">Eliminar<img class="ml-1" src="{{ asset('data/images/white_trash.png') }}"/></button>
+</form>

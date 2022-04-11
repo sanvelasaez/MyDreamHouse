@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Usuario{% endblock %}
+
+{% block body %}
+
+    <div class="container rounded bg-white"style="background-image: url('/data/images/fondos/casaFondoOpacity.png');" >
+    <div class="row">
+        <div class="col-md-4 border-right" style="background-image: url('/data/images/fondos/casaFondoOpacity.png');">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" src="{{ usuario.imagenUsu ? asset('data/images/usuarios/'~usuario.imagenUsu) : asset('data/images/usuarios/user-image.png') }}" width="90">
+                <span class="font-weight-bold text-light">{{ usuario.nombre }}</span><span class="text-light">{{ usuario.apellidos }}</span>
+                <span class="text-light">{{ usuario.email }}</span>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="text-right text-light">Editar perfil</h2>
+                </div>
+                {% if usuario.email == app.user.email %}
+                    <div class="col-btn text-light">
+                        {{ include('usuario/_form.html.twig') }}
+                        <a class="btn btn-dark" href="{{ path('home') }}"><img src="{{ asset('data/images/arrow_white.png') }}" class="show-img-index"/></a>
+                    </div>
+                {% else %}
+                <div class="col-btn text-light">
+                    {{ include('usuario/_form.html.twig') }}
+                    {{ include('usuario/_delete_form.html.twig') }}
+                    <a class="btn btn-dark" href="{{ path('home') }}"><img src="{{ asset('data/images/arrow_white.png') }}" class="show-img-index"/></a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('casa_delete', {'id': casa.id}) }}" onsubmit="return confirm('¿Está seguro de borrar el anuncio?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ casa.id) }}">
+    <button class="btn btn-danger ml-2 my-2 pb-2 py-2">Eliminar<img src="{{ asset('data/images/white_trash.png') }}"/></button>
+</form>

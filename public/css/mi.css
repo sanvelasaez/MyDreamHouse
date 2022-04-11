@@ -1,0 +1,25 @@
+body {
+    min-height: 100%;
+    position: relative;
+    margin: 0;
+}
+
+.row {
+    max-width: 100%;
+}
+
+#map_canvas {
+    position: relative;
+    overflow: hidden;
+    width: 600px;
+    height: 450px;
+    border: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.usericon {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50px;
+}

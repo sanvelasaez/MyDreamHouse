@@ -1,0 +1,6 @@
+<form method="post" action="{{ path('usuario_delete', {'id': usuario.id}) }}" onsubmit="return confirm('Seguro que quieres borrar a este usuario?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ usuario.id) }}">
+    <button class="btn btn-danger profile-button">Eliminar<img class="ml-1" src="{{ asset('data/images/white_trash.png') }}"/></button>
+    
+</form>

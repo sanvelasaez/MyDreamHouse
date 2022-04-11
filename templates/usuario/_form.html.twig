@@ -1,0 +1,8 @@
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-info profile-button btn-save mb-3">
+        {{ button_label|default('Guardar') }}
+        <img class="ml-1" src="{{ asset('data/images/save.png') }}"/>
+    </button>
+{{ form_end(form) }}

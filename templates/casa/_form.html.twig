@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-info ml-2 my-2">{{ button_label|default('Guardar') }}<img src="{{ asset('data/images/save.png') }}"/></button>
+    <a class="btn btn-dark my-2 ml-2" href="{{ path('casa_index') }}"><img src="{{ asset('data/images/arrow_white.png') }}"/>Volver a la lista</a>
+{{ form_end(form) }}

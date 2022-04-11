@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nueva Ciudad{% endblock %}
+
+{% block body %}
+    <div class="container pt-2 pb-2 pl-3" style="background-image: url('/data/images/fondos/casaFondoOpacity.png');">
+        <div id="div-ciudad-regis">
+            <div id="div-imgciudad-regis">
+                <img id="img-ciudad-regis" src="/data/images/fondos/casaFondo4.jpg"></img>
+            </div>
+            <div class="" id="div-formciu-regis">
+                <h2 class="text-center pb-4">Registrar ciudad</h2>
+                {{ include('ciudad/_form.html.twig') }}
+                <a class="btn btn-dark my-2 w-100" id="volver-editciu" href="{{ path('ciudad_index') }}"><img src="{{ asset('data/images/arrow_white.png') }}"/>Volver a la lista</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

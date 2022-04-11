@@ -1,0 +1,52 @@
+<link href="{{ asset('css/mi.css') }}" type="text/css" rel="stylesheet"/>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+	<a class="navbar-brand" href="{{ path('home') }}">
+		<span id="nomLog"></span><img id="logoNube" src="{{ asset('data/images/logoMyDream.png') }} "></a>
+	<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="collapsibleNavId">
+		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			{% if app.user %}
+				{% for role in app.user.roles  %}
+					{% if role =='ROLE_ADMIN' %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registrar</a>
+							<div class="dropdown-menu" aria-labelledby="dropdownId">
+								<a class="dropdown-item" href="{{ path('usuario_new') }}">Registrar usuario</a>
+								<a class="dropdown-item" href="{{ path('ciudad_new') }}">Registrar ciudad</a>
+								<a class="dropdown-item" href="{{ path('casa_new') }}">Registrar casa</a>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('usuario_index') }}">Usuarios
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('ciudad_index') }}">Ciudades</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('casa_index') }}">Casas</a>
+						</li>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		</ul>
+		<form class="form-inline my-2 my-lg-0">
+			<div class="cols-sm-8 navbar-dark">
+				{% if app.user %}
+					<span class="text-light mr-2">
+						<a href="{{ path('usuario_show', {'id': app.user.id}) }}" class="contact">
+							<img class="img-fluid usericon" src="{{ app.user.imagenUsu ? asset('data/images/usuarios/'~ app.user.imagenUsu) : asset('data/images/usuarios/user-image.png') }}">
+						</a>
+					</span>
+					<button class="btn btn-outline-light my-2 my-sm-0" type="submit" formaction="{{ path('app_logout') }}">Salir</button>
+				{% else %}
+					<button class="btn btn-outline-light my-2 my-sm-0 mr-2" type="submit" formaction="{{ path('app_login') }}">Iniciar sesión</button>
+					<button class="btn btn-outline-light my-2 my-sm-0 mr-2" type="submit" formaction="{{ path('usuario_new') }}">Registrar</button>
+				{% endif %}
+			</div>
+		</form>
+	</div>
+</nav>

@@ -1,0 +1,23 @@
+<input type="hidden" name="casa[tipo_venta]" value="{{ tipo_venta }}">
+<input type="hidden" name="casa[tipo_casa]" value="{{ tipo_casa }}">
+<input type="hidden" name="casa[id_ciu]" value="{{ id_ciu }}">
+
+<input type="hidden" name="m2min" value="{{ m2min }}">
+<input type="hidden" name="m2max" value="{{ m2max }}">
+
+<input type="hidden" name="preciomin" value="{{ preciomin }}">
+<input type="hidden" name="preciomax" value="{{ preciomax }}">
+
+{% if h != null %}
+	<input type="hidden" name="h[1]" value="{{ h[1] }}">
+	<input type="hidden" name="h[2]" value="{{ h[2] }}">
+	<input type="hidden" name="h[3]" value="{{ h[3] }}">
+	<input type="hidden" name="h[4]" value="{{ h[4] }}">
+{% endif %}
+
+{% if b != null %}
+	<input type="hidden" name="b[1]" value="{{ b[1] }}">
+	<input type="hidden" name="b[2]" value="{{ b[2] }}">
+	<input type="hidden" name="b[3]" value="{{ b[3] }}">
+	<input type="hidden" name="b[4]" value="{{ b[4] }}">
+{% endif %}

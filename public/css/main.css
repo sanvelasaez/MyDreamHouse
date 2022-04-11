@@ -1,0 +1,188 @@
+/*  User file */
+
+.user-img {
+    width: 25%;
+    margin-left: 38%;
+}
+
+.user-img-index {
+    width: 100px;
+}
+
+.info-data {
+    text-align: center;
+    background-color: whitesmoke;
+    width: 65%;
+    float: right;
+    margin-left: 100px;
+}
+
+.main-div {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    width: 100%;
+}
+
+.custom-file {
+    width: 200px;
+    margin-left: 2%;
+}
+
+.col-btn button {
+    float: right;
+    text-align: center;
+    margin-left: 2%;
+}
+
+.bck-link {
+    margin-left: 30%;
+}
+
+tr:hover {
+    background-color: aliceblue;
+}
+
+th {
+    background-color: skyblue;
+}
+
+.show-img-index,
+.edit-img-index {
+    margin-right: 10px;
+}
+
+
+/* CSS Casas Index */
+
+.ctn-house {
+    margin-bottom: 5%;
+    margin-left: 0px;
+    width: 100%;
+}
+
+
+/* CSS Casas Show */
+
+.ctn-image-house-show2 {
+    width: 600px;
+    height: 300px;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.ctn-image-house-show2 img {
+    width: 600px;
+    height: 300px !important;
+}
+
+.cabecera-casa {
+    background-color: lightblue;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.desc-casa {
+    width: 80%;
+    margin: auto;
+    text-align: justify;
+}
+
+.titulo-casa {
+    text-align: center;
+}
+
+.info-casas {
+    background-color: white;
+}
+
+.info-adicional {
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.titulo-div {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.tipo-casa-div {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.info-derecha {
+    font-weight: bold;
+    float: right;
+    margin-right: 5px;
+    /* margin-top: -40px; */
+}
+
+
+/* MEDIAQUERIE SHOW CASAS*/
+
+@media (max-width: 600px) {
+    .ctn-image-house-show2 {
+        width: 80%;
+    }
+    .info-adicional {
+        width: 100%;
+    }
+}
+
+
+/* MOBILE FIRST INDEX CASAS */
+
+@media (min-width: 768px) {
+    .ctn-house {
+        margin-bottom: 5%;
+        margin-left: 27%;
+        display: flex;
+        max-width: 80%;
+    }
+    .description {
+        display: inline-block;
+        text-align: justify;
+        overflow: hidden;
+        height: 100px;
+    }
+    .ctn-image-house {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 250px;
+        margin-right: 100px;
+    }
+    .info-description {
+        width: 80%;
+        padding-right: 40px;
+    }
+    .price {
+        color: darkblue;
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .info-type {
+        float: right;
+    }
+    .a-title,
+    .a-title:hover {
+        text-decoration: none;
+        color: black;
+    }
+    .img-fluid {
+        height: 250px !important;
+    }
+}
+
+@media (min-width: 1248px) {
+    .ctn-image-house {
+        display: flex;
+        flex-direction: row;
+        width: 444px;
+        height: 250px;
+        margin-right: 100px;
+    }
+}

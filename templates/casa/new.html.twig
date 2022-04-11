@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nueva Casa{% endblock %}
+
+{% block body %}
+<div class="container pt-1 pb-1"  style="background-image: url('/data/images/fondos/casaFondoOpacity.png');">
+    <div id="div-casas-regis">
+        <div id="div-imgcasas-regis">
+            <img id="img-casas-regis" src="/data/images/fondos/casaFondo4recortada.jpg"></img>
+        </div>
+        <div class="pl-3 pr-3" id="div-formcasas-regis">
+            <h2 class="text-center pt-2 mb-3">¡Sube tu vivienda!</h2>
+            
+            
+            {{ include('casa/_form.html.twig') }}
+            {# {% if q != null %}
+                {% if q == false %}
+                    <script>alert('Formato de imagen invalido')</script>
+                {% endif %}
+                
+            {% endif %} #}
+        </div>
+    </div>
+</div>
+{% endblock %}
